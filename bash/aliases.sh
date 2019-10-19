@@ -4,6 +4,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
+alias cds='cd ~/Sites && pwd'
 
 # NPM Aliases
 alias nrb="npm run build"
@@ -56,3 +57,20 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Launch VSCode in teaching mode
 alias teach="code --extensions-dir ~/code_profiles/egghead/exts --user-data-dir ~/code_profiles/egghead/data"
+
+# Launch sublime
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+
+# Hub is a tool that wraps git in order to extend it with extra functionality that makes it better when working with GitHub.
+alias git=hub
+
+# alias backstop='docker run --rm -v $(pwd):/src backstopjs/backstopjs "$@"'
+alias robo='./vendor/bin/robo "$@"'
+
+# Drupal Code Sniffer
+alias drupalcs="phpcs --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md'"
+alias drupalcsp="phpcs --standard=DrupalPractice --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md'"
+alias drupalcbf="phpcbf --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md'"
+
+# Lagoon ui up
+alias lup="make build/auto-idler && make build/broker-single && make build/broker && make build/logs-db && make build/logs2logs-db && make ui-development && docker-compose up -d auto-idler && docker-compose up -d --force api && docker-compose up -d --force logs-db && docker-compose up -d logs2logs-db && docker-compose up -d broker"

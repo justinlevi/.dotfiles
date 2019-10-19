@@ -33,10 +33,10 @@ node_prompt () {
 }
 
 # Make a directory && cd into that directory
-function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 # Rename all directories to lowercase
-function lowercaseAllDirs () {
+lowercaseAllDirs () {
   for f in *; do
     if [[ -d "$f" && ! -L "$f" ]]; then
       local LOWERDIR="$( echo $f | tr '[:upper:]' '[:lower:]')"
@@ -46,4 +46,58 @@ function lowercaseAllDirs () {
       fi
     fi
   done
+}
+
+# Find all active launchctl processes/files
+launchctlFind () {
+  grep -B 1 -A 1 "active count = 1$" <<< "$(launchctl dumpstate)"
+}
+
+# Check sum
+sha256check () {
+    if [[ $(pbpaste) == $(shasum -b -a 256 "$@" | awk '{print $1}') ]]; then echo 'match'; fi ;
+}
+
+#  nth-commit.sh
+#  Usage: `nth-commit.sh n [branch]`
+nth-commit() {
+  branch=${2:-'master'}
+  SHA1=$(git rev-list $branch | tail -n $1 | head -n 1)
+  git checkout $SHA1
+}
+
+update_terminal_cwd() {
+    # Identify the directory using a "file:" scheme URL,
+    # including the host name to disambiguate local vs.
+    # remote connections. Percent-escape spaces.
+    local SEARCH=' '
+    local REPLACE='%20'
+    local PWD_URL="file://$HOSTNAME${PWD//$SEARCH/$REPLACE}"
+    printf '\e]7;%s\a' "$PWD_URL"
+}
+
+blt() {
+  if [[ ! -z ${AH_SITE_ENVIRONMENT} ]]; then
+    PROJECT_ROOT="/var/www/html/${AH_SITE_GROUP}.${AH_SITE_ENVIRONMENT}"
+  elif [ "`git rev-parse --show-cdup 2> /dev/null`" != "" ]; then
+    PROJECT_ROOT=$(git rev-parse --show-cdup)
+  else
+    PROJECT_ROOT="."
+  fi
+
+  if [ -f "$PROJECT_ROOT/vendor/bin/blt" ]; then
+    $PROJECT_ROOT/vendor/bin/blt "$@"
+
+  # Check for local BLT.
+  elif [ -f "./vendor/bin/blt" ]; then
+    ./vendor/bin/blt "$@"
+
+  else
+    echo "You must run this command from within a BLT-generated project."
+    return 1
+  fi
+}
+
+syspip(){
+   PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }

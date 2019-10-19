@@ -1,9 +1,6 @@
 # Add bin to PATH
 export PATH="/usr/local/bin:$PATH"
 
-# Add MySQL to PATH
-export PATH="/usr/local/mysql/bin:$PATH"
-
 # Load NVM
 [ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh"
 
@@ -21,3 +18,32 @@ export EDITOR='code -w'
 
 # Stop Git from asking for merge messages
 export GIT_MERGE_AUTOEDIT=no
+
+# Increase history size
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTSIZE=100000                   # big big history
+export HISTFILESIZE=100000               # big big history
+shopt -s histappend                      # append to history, don't overwrite it
+
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+# Add the current composer vendor to PATH
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+# Add curl to the front of PATH
+export PATH="/usr/local/opt/curl/bin:$PATH"
+
+# pip should only run if there is a virtualenv currently activated
+export PIP_REQUIRE_VIRTUALENV=false
+
+# cache pip-installed packages to avoid re-downloading
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+
+# Set architecture flags
+export ARCHFLAGS="-arch x86_64"
+
+# Drush Launcher fallback path
+export DRUSH_LAUNCHER_FALLBACK=$HOME/.composer/vendor/bin/drush
+
+eval "$(direnv hook bash)"
