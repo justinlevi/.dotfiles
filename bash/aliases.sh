@@ -4,7 +4,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
-alias cds='cd ~/Sites && pwd'
+
 
 # NPM Aliases
 alias nrb="npm run build"
@@ -13,13 +13,19 @@ alias nrt="npm run test"
 alias nrtw="npm run test:watch"
 alias nrd="npm run deploy"
 
+# Yarn Aliases
+alias yb="yarn build"
+alias ys="yarn start"
+alias yt="yarn test"
+alias ytw="yarn test:watch"
+alias yd="yarn deploy"
+
 # Directory Aliases
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias wk="cd ~/Work"
-alias pra="cd ~/Practice"
-alias sp="cd ~/SideProjects"
-alias blog="cd ~/Work/blog"
+alias pr="cd ~/Projects"
+alias si="cd ~/Sites"
+alias cds='cd ~/Sites && pwd'
 
 # List all, long form
 alias la="ls -la"
