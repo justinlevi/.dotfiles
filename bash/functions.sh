@@ -66,16 +66,6 @@ nth-commit() {
   git checkout $SHA1
 }
 
-update_terminal_cwd() {
-    # Identify the directory using a "file:" scheme URL,
-    # including the host name to disambiguate local vs.
-    # remote connections. Percent-escape spaces.
-    local SEARCH=' '
-    local REPLACE='%20'
-    local PWD_URL="file://$HOSTNAME${PWD//$SEARCH/$REPLACE}"
-    printf '\e]7;%s\a' "$PWD_URL"
-}
-
 blt() {
   if [[ ! -z ${AH_SITE_ENVIRONMENT} ]]; then
     PROJECT_ROOT="/var/www/html/${AH_SITE_GROUP}.${AH_SITE_ENVIRONMENT}"
@@ -99,5 +89,5 @@ blt() {
 }
 
 syspip(){
-   PIP_REQUIRE_VIRTUALENV="" pip "$@"
+  PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
