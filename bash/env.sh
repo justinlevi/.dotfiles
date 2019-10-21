@@ -28,9 +28,6 @@ shopt -s histappend                      # append to history, don't overwrite it
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-# Add the current composer vendor to PATH
-export PATH="$PATH:$HOME/.composer/vendor/bin"
-
 # Add curl to the front of PATH
 export PATH="/usr/local/opt/curl/bin:$PATH"
 
@@ -45,5 +42,11 @@ export ARCHFLAGS="-arch x86_64"
 
 # Drush Launcher fallback path
 export DRUSH_LAUNCHER_FALLBACK=$HOME/.composer/vendor/bin/drush
+
+# Add the global composer vendor folder to PATH
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+# Add the local composer vendor folder to PATH
+export PATH="./vendor/bin:$PATH"
 
 eval "$(direnv hook bash)"
