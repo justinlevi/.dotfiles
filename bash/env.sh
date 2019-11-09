@@ -47,6 +47,6 @@ export DRUSH_LAUNCHER_FALLBACK=$HOME/.composer/vendor/bin/drush
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 # Add the local composer vendor folder to PATH
-export PATH="./vendor/bin:$PATH"
+export PATH="$PATH:./vendor/bin"
 
 eval "$(direnv hook bash)"
