@@ -5,4 +5,3 @@
 . ~/.dotfiles/zsh/config.sh
 . ~/.dotfiles/aliases.sh
 . ~/.dotfiles/completions.sh
-. ~/.dotfiles/osx/defaults.sh

@@ -83,3 +83,6 @@ alias cdl='cd ~/projects/lagoon'
 
 #UI Dev Environment
 alias lup="make build/auto-idler && make build/broker-single && make build/broker && make build/logs-db && make build/logs2logs-db && make ui-development && docker-compose up -d auto-idler && docker-compose up -d --force api && docker-compose up -d --force logs-db && docker-compose up -d logs2logs-db && docker-compose up -d broker"
+
+
+alias tower="/usr/local/bin/gittower"
