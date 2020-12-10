@@ -34,7 +34,9 @@ brew install --cask tower
 brew install cowsay
 brew install thefuck
 
-nvm install node 10
+nvm install 10
+nvm use 10
+nvm alias default 10
 
 chmod g-w /usr/local/share/zsh
 chmod g-w /usr/local/share/zsh/site-functions
