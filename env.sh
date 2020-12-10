@@ -2,7 +2,8 @@
 export PATH="/usr/local/bin:$PATH"
 
 # Load NVM
-[ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh"
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 
 # Load Yarn
 export PATH="$HOME/.yarn/bin:$PATH"
