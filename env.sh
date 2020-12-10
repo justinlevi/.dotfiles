@@ -23,7 +23,10 @@ export GIT_MERGE_AUTOEDIT=no
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=100000                   # big big history
 export HISTFILESIZE=100000               # big big history
-shopt -s histappend                      # append to history, don't overwrite it
+
+if [ -n "$BASH_VERSION" ]; then
+  shopt -s histappend                   # append to history, don't overwrite it
+fi
 
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
@@ -49,4 +52,6 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 # Add the local composer vendor folder to PATH
 export PATH="$PATH:./vendor/bin"
 
-eval "$(direnv hook bash)"
+if [ -n "$BASH_VERSION" ]; then
+  eval "$(direnv hook bash)"
+fi

@@ -78,5 +78,8 @@ alias drupalcs="phpcs --standard=Drupal --extensions='php,module,inc,install,tes
 alias drupalcsp="phpcs --standard=DrupalPractice --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md'"
 alias drupalcbf="phpcbf --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md'"
 
-# Lagoon ui up
+# Lagoon
+alias cdl='cd ~/projects/lagoon'
+
+#UI Dev Environment
 alias lup="make build/auto-idler && make build/broker-single && make build/broker && make build/logs-db && make build/logs2logs-db && make ui-development && docker-compose up -d auto-idler && docker-compose up -d --force api && docker-compose up -d --force logs-db && docker-compose up -d logs2logs-db && docker-compose up -d broker"
