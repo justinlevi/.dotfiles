@@ -51,6 +51,8 @@ git config --global user.email "justinlevi@gmail.com"
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
+sudo xcode-select --install
+
 
 # Docker Desktop
 # https://docs.docker.com/docker-for-mac/install/
