@@ -34,3 +34,6 @@
   reaper-nokill = remote prune --dry-run origin
   reaper = remote prune origin
   upbr = "!f() { git fetch && git rebase origin/master; }; f"
+  
+[hub]
+	protocol = ssh

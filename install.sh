@@ -17,6 +17,7 @@ brew install balenaetcher
 brew install sequel-pro
 brew install adobe-creative-cloud
 brew install grep
+brew install hub
 
 brew install nvm
 brew install yarn
