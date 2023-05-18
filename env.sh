@@ -53,6 +53,9 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 # Add the local composer vendor folder to PATH
 export PATH="$PATH:./vendor/bin"
 
+# Homebrew
+export PATH="/opt/homebrew/bin:$PATH"
+
 if [ -n "$BASH_VERSION" ]; then
   eval "$(direnv hook bash)"
 fi

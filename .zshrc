@@ -5,3 +5,5 @@
 . ~/.dotfiles/zsh/config.sh
 . ~/.dotfiles/aliases.sh
 . ~/.dotfiles/completions.sh
+
+source /Users/justinwinter/.docker/init-zsh.sh || true # Added by Docker Desktop
